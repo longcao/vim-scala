@@ -10,7 +10,7 @@ syn case match
 syn sync minlines=200 maxlines=1000
 
 syn keyword scalaKeyword catch do else final finally for forSome if
-syn keyword scalaKeyword match return throw try while yield macro this
+syn keyword scalaKeyword match null return throw try while yield macro super this
 syn keyword scalaKeyword class trait object extends with new nextgroup=scalaInstanceDeclaration skipwhite
 syn keyword scalaKeyword case nextgroup=scalaKeyword,scalaCaseFollowing skipwhite
 syn keyword scalaKeyword val nextgroup=scalaNameDefinition,scalaQuasiQuotes skipwhite
@@ -85,7 +85,7 @@ syn match scalaCaseFollowing /\<[_\.A-Za-z0-9$]\+\>/ contained
 syn match scalaCaseFollowing /`[^`]\+`/ contained
 hi link scalaCaseFollowing Special
 
-syn keyword scalaKeywordModifier abstract override final lazy implicit implicitly private protected sealed null require super
+syn keyword scalaKeywordModifier abstract override final lazy implicit implicitly private protected sealed require
 hi link scalaKeywordModifier Function
 
 syn keyword scalaSpecial package import ne eq
