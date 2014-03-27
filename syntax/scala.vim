@@ -10,11 +10,12 @@ syn case match
 syn sync minlines=200 maxlines=1000
 
 syn keyword scalaKeyword catch do else final finally for forSome if
-syn keyword scalaKeyword match return throw try while yield macro
-syn keyword scalaKeyword class trait object extends with nextgroup=scalaInstanceDeclaration skipwhite
+syn keyword scalaKeyword match return throw try while yield macro this
+syn keyword scalaKeyword class trait object extends with new nextgroup=scalaInstanceDeclaration skipwhite
 syn keyword scalaKeyword case nextgroup=scalaKeyword,scalaCaseFollowing skipwhite
 syn keyword scalaKeyword val nextgroup=scalaNameDefinition,scalaQuasiQuotes skipwhite
 syn keyword scalaKeyword def var nextgroup=scalaNameDefinition skipwhite
+syn match scalaKeyword "\%(=>\|⇒\|<-\|←\|->\|→\)"
 hi link scalaKeyword Keyword
 
 syn keyword scalaAkkaSpecialWord when goto using startWith initialize onTransition stay become unbecome
@@ -22,6 +23,9 @@ hi link scalaAkkaSpecialWord PreProc
 
 syn match scalaSymbol /'[_A-Za-z0-9$]\+/
 hi link scalaSymbol Number
+
+syn keyword scalaBoolean true false
+hi link scalaBoolean Boolean
 
 syn match scalaChar /'.'/
 syn match scalaEscapedChar /\\[\\ntbrf]/
@@ -84,9 +88,7 @@ hi link scalaCaseFollowing Special
 syn keyword scalaKeywordModifier abstract override final lazy implicit implicitly private protected sealed null require super
 hi link scalaKeywordModifier Function
 
-syn keyword scalaSpecial this true false package import ne eq
-syn keyword scalaSpecial new nextgroup=scalaInstanceDeclaration skipwhite
-syn match scalaSpecial "\%(=>\|⇒\|<-\|←\|->\|→\)"
+syn keyword scalaSpecial package import ne eq
 syn match scalaSpecial /`[^`]*`/  " Backtick literals
 hi link scalaSpecial PreProc
 
@@ -147,7 +149,7 @@ syn region scalaCommentCodeBlock matchgroup=Keyword start="{{{" end="}}}" contai
 hi link scalaMultilineComment Comment
 hi link scalaDocLinks Function
 hi link scalaParameterAnnotation Function
-hi link scalaParamAnnotationValue Keyword
+hi link scalaParamAnnotationValue String
 hi link scalaCommentAnnotation Function
 hi link scalaCommentCodeBlock String
 
